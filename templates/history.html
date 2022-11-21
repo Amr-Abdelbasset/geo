@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-start">Symbol</th>
+            <th class="text-end">Shares</th>
+            <th class="text-end">Price</th>
+            <th class="text-end">Transacted</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in data %}
+
+            <tr>
+                <td class="text-start">{{item["symbol"]}}</td>
+                <td class="text-end">{{item["shares"]}}</td>
+                <td class="text-end">${{item["price"]|usd}}</td>
+                <td class="text-end">{{item["date"]}}</td>
+            </tr>
+        {% endfor %}
+{% endblock %}
